@@ -58,24 +58,24 @@
 
 <script>
 
- function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    e.target.classList.remove('playing');
+ function removeTransition(e) { //removing all the transistions when fired function
+    if (e.propertyName !== 'transform') return; // skip if oys not a transform
+    e.target.classList.remove('playing'); // removing class of playing
   }
 
   function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
-    if (!audio) return;
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // Grabbing correct audio that matches key code
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`); // grabbing the key
+    if (!audio) return; // Stop function runnning
 
-    key.classList.add('playing');
-    audio.currentTime = 0;
-    audio.play();
+    key.classList.add('playing'); // adding the class of playing
+    audio.currentTime = 0; // Rewind to start
+    audio.play(); // play audio
   }
 
-  const keys = document.querySelectorAll('.key');
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-  window.addEventListener('keydown', playSound);
+  const keys = document.querySelectorAll('.key'); // grabbing all the keys array
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // loop over and adding event listener then run function called remove transition
+  window.addEventListener('keydown', playSound); // listening for a key down and playing sound
 </script>
 </body>
 </html>
