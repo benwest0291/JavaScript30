@@ -74,7 +74,7 @@
   }
 
   const keys = document.querySelectorAll('.key'); // grabbing all the keys array
-  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // loop over and adding event listener then run function called remove transition
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition)); // loop over and adding event listener then run function called remove transition (array/ Node list)
   window.addEventListener('keydown', playSound); // listening for a key down and playing sound
 </script>
 </body>
